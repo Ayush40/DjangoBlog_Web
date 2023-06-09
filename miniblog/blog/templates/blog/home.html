@@ -1,11 +1,14 @@
-{%extends "blog/base.html"%} {%load static%} {%block content%}
+{%extends "blog/base.html"%} {%load static%} {%load social_share%}
+{%block content%}
 <div class="col-sm-10">
   <h3 class="text-white my-5 display-6 fw-semibold text-md-center">Explore</h3>
   {%for post in posts%}
   <div class="mb-lg-4">
     <div class="jumbotron jumbotron-fluid jumbo-color">
       <div class="container-xl">
-        <p class="text-end text-opacity-50 text-white fst-italic">{{post.timestamp}}</p>
+        <p class="text-end text-opacity-50 text-white fst-italic">
+          {{post.timestamp}}
+        </p>
         <h1 class="display-4 fw-normal">{{post.title}}</h1>
         <p class="lead">{{post.desc | safe}}</p>
         <hr />
@@ -21,28 +24,27 @@
           </button>
           <!-- Like button end -->
 
-          <a
+          <button
+            id="copyButton"
             class="btn btn-outline-info btn-sm mb-3 rounded-5"
-            href="/"
-            role="button"
-            >Read more</a
           >
+            Share
+          </button>
           <br />
         </p>
       </div>
-
     </div>
   </div>
   {%endfor%}
 </div>
 <div class="fixed-bottom d-flex justify-content-end mb-2 mr-3 gap-md-2">
   <button
-          type="button"
-          class="btn btn-outline-light btn-sm mb-3 rounded-5"
-          id="scrollToTopBtn"
-        >
-          Go to top!
-        </button>&nbsp;&nbsp;
+    type="button"
+    class="btn btn-outline-light btn-sm mb-3 rounded-5"
+    id="scrollToTopBtn"
+  >
+    Go to top!</button
+  >&nbsp;&nbsp;
 </div>
 <script>
   var likeButton = document.getElementById("likeButton");
@@ -58,5 +60,18 @@
   document.getElementById('scrollToTopBtn').addEventListener('click', scrollToTop);
 
 
+  document.getElementById("copyButton").addEventListener("click", function() {
+    var url = window.location.href;
+
+    var tempInput = document.createElement("input");
+    document.body.appendChild(tempInput);
+    tempInput.value = url;
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+
+    // Optional: Show a success message or perform any other actions
+    alert("URL copied to clipboard!");
+  });
 </script>
 {%endblock content%}
