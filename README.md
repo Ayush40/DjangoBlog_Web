@@ -32,15 +32,6 @@ This is a simple blog website built using Django, a Python web framework.
 5. Install the dependencies:
 
     pip install -r requirements.txt
-     
-     -It includes the following code:
-        asgiref==3.7.1
-        Django==4.2.1
-        django-jazzmin==2.6.0
-        sqlparse==0.4.4
-        tzdata==2023.3
-        
-    - Save requirement.txt file in miniblog folder.
     
 6. Perform database migrations:
 
