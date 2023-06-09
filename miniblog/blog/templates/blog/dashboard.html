@@ -46,8 +46,9 @@
         <thead>
           <tr class="text-center">
             <th scope="col" style="width:2%">ID</th>
-            <th scope="col" style="width:28%">Title</th>
+            <th scope="col" style="width:19%">Title</th>
             <th scope="col" style="width:55%">Description</th>
+            <th scope="col" style="width:12%">Time</th>
             <th scope="col" style="width:15%">Action</th>
           </tr>
         </thead>
@@ -57,6 +58,7 @@
             <th scope="row">{{post.id}}</th>
             <td>{{post.title}}</td>
             <td>{{post.desc}}</td>
+            <td>{{post.timestamp}}</td>
             <td class="text-center">
               <a href="{%url 'blog-updatepost' post.id%}" class="btn btn-warning btn-sm">Edit</a>
               {%if perms.blog.delete_post%}
