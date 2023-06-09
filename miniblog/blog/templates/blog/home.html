@@ -7,7 +7,7 @@
       <div class="container-xl">
         <p class="text-end text-opacity-50 text-white fst-italic">{{post.timestamp}}</p>
         <h1 class="display-4 fw-normal">{{post.title}}</h1>
-        <p class="lead">{{post.desc}}</p>
+        <p class="lead">{{post.desc | safe}}</p>
         <hr />
         <p class="lead">
           <!-- Like button -->

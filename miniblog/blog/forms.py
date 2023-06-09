@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, User
 from django.contrib.auth.models import User
 from django.utils.translation import gettext, gettext_lazy as _
 from .models import Post
+from ckeditor.widgets import CKEditorWidget
 
 class SignUpForm(UserCreationForm):
         password1 = forms.CharField(label="Password" , widget=forms.PasswordInput(attrs={'class':'form-control'}))
@@ -28,5 +29,5 @@ class PostForm(forms.ModelForm):
                 fields=['title','desc']
                 labels={'title':'Title','desc':'Description'}
                 widgets={'title':forms.TextInput(attrs={'class':'form-control'}),
-                        'desc':forms.Textarea(attrs={'class':'form-control'}),
+                        'desc':CKEditorWidget(),
                         }
