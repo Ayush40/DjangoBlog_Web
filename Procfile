@@ -1,1 +1,1 @@
-web: gunicorn 'miniblog.wsgi'
+web: gunicorn 'blog.wsgi'
