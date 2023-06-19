@@ -7,3 +7,5 @@ class Post(models.Model):
     title=models.CharField(max_length=200)
     desc=RichTextField()
     timestamp=models.DateTimeField(default=timezone.now)
+    class Meta:
+        ordering=['-timestamp']
