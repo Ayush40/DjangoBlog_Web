@@ -49,9 +49,14 @@
 <script>
   var likeButton = document.getElementById("likeButton");
   var likeCount = 0;
+  var hasLiked = false;
+
   likeButton.addEventListener("click", function () {
-    likeCount += 1;
-    likeButton.innerHTML = "Like " + likeCount;
+    if (!hasLiked) {
+      likeCount += 1;
+      likeButton.innerHTML = "Like " + likeCount;
+      hasLiked = true;
+    }
   });
 
   function scrollToTop() {
